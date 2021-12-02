@@ -12,7 +12,7 @@ I took the simple polling app on the official django tutorial page enhanced it s
     - there are other minor additions like the 'learn how to use' page, but i know that's not big
       deal. it shouldn't count.
       
-The webapp is currently running <a href="https://www.pvot.pythonanywhere.com">here</a>.
+The webapp is currently running <a href="http://www.pvot.pythonanywhere.com">here</a>.
 
 The pvot.tar.gz archive in this repository has all the files of the webapp so it's possoble to 
 download and unpack it on your machine to run pvot locally. just make sure you have a python 3
