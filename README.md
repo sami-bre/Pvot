@@ -13,7 +13,7 @@ I took the simple polling app on the official django tutorial page enhanced it s
       deal. it shouldn't count.
       
 The webapp is currently running <a href="http://www.pvot.pythonanywhere.com">here</a>.
-For some reason, the above link is not working. copy and paste the following url into your
+For some reason, the above link is not working. Copy and paste the following url into your
 browser instead ... pvot.pythonanywhere.com
 
 The pvot.tar.gz archive in this repository has all the files of the webapp so it's possoble to 
