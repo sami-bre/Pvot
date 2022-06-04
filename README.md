@@ -1,5 +1,5 @@
 # Pvot
-A django online voting app. An extension to the polling app on the official django tutorial.
+A django online voting app. An extension of the polling app on the official django tutorial.
 
 I took the simple polling app on the official django tutorial page enhanced it so that it:
     - looks better (I used the Bootstrap freamwork to make things a bit shiny
