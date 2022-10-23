@@ -1,0 +1,246 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block body %}
+
+{% if language == "amharic" %}
+
+    <form method="post" action="{% url 'polls:vote' question.id %}" class="container"><br><br>
+        <div class="row">
+
+            <div class="col-md-8 order-md-1">
+                <h2 class="display-4" style="font-family: Nyala;">{{ question.amharic_question_text }}</h2><br>
+
+
+                {% csrf_token %}
+                {% for choice in question.choice_set.all %}
+
+                <div class="custom-control custom-radio lead">
+                    <input type="radio" id="choice {{ forloop.counter }}" value="{{ choice.id }}" name="choice" class="custom-control-input">
+                    <label class="custom-control-label" for="choice {{ forloop.counter }}" style="font-family: Nyala;">{{ choice.amharic_choice_text }}</label>
+                </div>
+
+                {% endfor %}
+                <br><br>
+
+                {% if choice_error %}
+                <strong class="text-danger lead" style="font-family: Nyala;">{{ choice_error.amharic }}</strong>
+                {% endif %}
+
+
+            </div>
+
+
+            <div class="col-md-4 order-md-2 mb-4">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted">የመራጭነት መለያዎትን ያስገቡ</span>
+                    <!--<div class="alert alert-info" role="alert">-->
+                    <!--    <span class="text-muted" style="font-family: Nyala;">-->
+                    <!--        የመራጭነት መለያዎትን ያስገቡ-->
+                    <!--    </span>-->
+                    <!--  </div>-->
+                </h4>
+
+                {% if voter_error %}
+                <p class="text-danger lead" style="font-family: Nyala;">{{ voter_error.amharic }}</p>
+                {% endif %}
+
+
+
+                <div style="font-family: Nyala;">
+                    {{ citizen_form.first_name }}
+                </div><br>
+
+                <div style="font-family: Nyala;">
+                    {{ citizen_form.last_name }}
+                </div><br>
+
+                <div style="font-family: Nyala;">
+                    {{ citizen_form.voter_id }}
+                </div><br>
+
+                <input type="submit" class="btn btn-primary btn-lg btn-block" value="ምረጥ/ምረጭ" style="font-family: Nyala;">
+
+
+            </div>
+        </div>
+
+
+
+    </form>
+
+    <script>
+        $("#id_first_name").addClass("form-control").attr("placeholder","የራስዎ ስም")
+        $("#id_last_name").addClass("form-control").attr("placeholder","የአባት ስም")
+        $("#id_voter_id").addClass("form-control").attr("placeholder","የመራጭነት መለያ")
+    </script>
+
+{% elif language == "afaan oromo" %}
+
+    <form method="post" action="{% url 'polls:vote' question.id %}" class="container"><br><br>
+        <div class="row">
+
+            <div class="col-md-8 order-md-1">
+                <h2 class="display-4">{{ question.oromic_question_text }}</h2><br>
+
+
+                {% csrf_token %}
+                {% for choice in question.choice_set.all %}
+
+                <div class="custom-control custom-radio lead">
+                    <input type="radio" id="choice {{ forloop.counter }}" value="{{ choice.id }}" name="choice" class="custom-control-input">
+                    <label class="custom-control-label" for="choice {{ forloop.counter }}">{{ choice.oromic_choice_text }}</label>
+                </div>
+
+                {% endfor %}
+                <br><br>
+
+                {% if choice_error %}
+                <strong class="text-danger lead">{{ choice_error.afaan_oromo }}</strong>
+                {% endif %}
+
+
+            </div>
+
+
+            <div class="col-md-4 order-md-2 mb-4">
+                <br>
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted">Eenyummaa galchaa</span>
+                    <!--<span class="text-muted">-->
+                    <!--    <div class="alert alert-info" role="alert">-->
+                    <!--        <span class="text-muted">-->
+                    <!--            Eenyummaa galchaa-->
+                    <!--        </span>-->
+                    <!--      </div>-->
+                    <!--</span>-->
+                </h4>
+
+                {% if voter_error %}
+                <p class="text-danger lead">{{ voter_error.afaan_oromo }}</p>
+                {% endif %}
+
+
+
+                <div>
+                    {{ citizen_form.first_name }}
+                </div><br>
+
+                <div>
+                    {{ citizen_form.last_name }}
+                </div><br>
+
+                <div>
+                    {{ citizen_form.voter_id }}
+                </div><br>
+
+                <input type="submit" class="btn btn-primary btn-lg btn-block" value="Filachuuf cuqaasi">
+
+
+            </div>
+        </div>
+
+
+
+    </form>
+
+    <script>
+        $("#id_first_name").addClass("form-control").attr("placeholder","Maqaan ittiin galmoofte")
+        $("#id_last_name").addClass("form-control").attr("placeholder","Maqaa abbaa ittiin galmoofte")
+        $("#id_voter_id").addClass("form-control").attr("placeholder","Lakkoofsa filataa icciitii siif kenname")
+    </script>
+
+{% else %}
+
+    <form method="post" action="{% url 'polls:vote' question.id %}" class="container"><br><br>
+        <div class="row">
+
+            <div class="col-md-8 order-md-1">
+                <h2 class="display-4">{{ question.english_question_text }}</h2><br>
+
+
+                {% csrf_token %}
+                {% for choice in question.choice_set.all %}
+
+                <div class="custom-control custom-radio lead">
+                    <input type="radio" id="choice {{ forloop.counter }}" value="{{ choice.id }}" name="choice" class="custom-control-input">
+                    <label class="custom-control-label" for="choice {{ forloop.counter }}">{{ choice.english_choice_text }}</label>
+                </div>
+                <br>
+
+                {% endfor %}
+                <br><br>
+
+                {% if choice_error %}
+                <strong class="text-danger lead">{{ choice_error.english }}</strong>
+                {% endif %}
+
+
+            </div>
+
+
+            <div class="col-md-4 order-md-2 mb-4">
+                <br>
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                     <span class="text-muted">Enter credentials</span>
+                    <!--<br>-->
+                    <!--<h3><span class="text-muted">-->
+                    <!--    <div class="alert alert-info" role="alert">-->
+                    <!--        <span class="text-muted">-->
+                    <!--            Enter your credentials-->
+                    <!--        </span>-->
+                    <!--      </div>-->
+                    <!--</span></h3>-->
+                    <!--<br/>-->
+                </h4>
+
+                {% if voter_error %}
+                <p class="text-danger lead">{{ voter_error.english }}</p>
+                {% endif %}
+
+
+
+                <div>
+                    {{ citizen_form.first_name }}
+                    <!--            <input type="text" class="form-control" id="cc-name" placeholder="" required="">-->
+                    <!--            <small class="text-muted">Full name as displayed on card</small>-->
+                    <!--            <div class="invalid-feedback">-->
+                    <!--              Name on card is required-->
+                    <!--            </div>-->
+                </div><br>
+
+                <div>
+                    {{ citizen_form.last_name }}
+                    <!--            <input type="text" class="form-control" id="cc-number" placeholder="" required="">-->
+                    <!--            <div class="invalid-feedback">-->
+                    <!--              Credit card number is required-->
+                    <!--            </div>-->
+                </div><br>
+
+                <div>
+                    {{ citizen_form.voter_id }}
+                    <!--            <input type="text" class="form-control" id="cc-number" placeholder="" required="">-->
+                    <!--            <div class="invalid-feedback">-->
+                    <!--              Credit card number is required-->
+                    <!--            </div>-->
+                </div><br>
+
+                <input type="submit" class="btn btn-primary btn-lg btn-block" value="Click to vote">
+
+
+            </div>
+        </div>
+
+
+
+    </form>
+
+    <script>
+        $("#id_first_name").addClass("form-control").attr("placeholder","Your registered first name")
+        $("#id_last_name").addClass("form-control").attr("placeholder","Your registered last name")
+        $("#id_voter_id").addClass("form-control").attr("placeholder","Your secret voter id")
+    </script>
+{% endif %}
+
+{% endblock %}

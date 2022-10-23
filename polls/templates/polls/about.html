@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block body %}
+
+
+<div class="container"><br><br>
+    <div class="row">
+
+        <div class="col-md-8 order-md-1">
+            <div class="display-3">What PVot is</div><br>
+            <p>
+                PVot is a cloud based application that allows legally registered citizens of a country or
+                members of a community to give online votes on issues of their concern. It can be
+                used by governments or other administrative offices to collect opinions of their members or
+                even to conduct national elections.
+            </p>
+
+            <p>
+                PVot embodies part of the working of an e-governmental system. Its role in reducing the immense
+                money allotted for conducting elections is undeniable. On top of that, PVot enables users to vote
+                from where they are without the difficulties of going to a polling station.  Furthermore, it enables
+                to see the cumulative results of a vote instantaneously, and this is a great cut in the time required
+                to count votes manually before revealing the results.
+            </p>
+
+            <p>
+                Security has been a concern in the development of PVot. The django framework, on which PVot is
+                based, has numerous internal security features. Some of those include immunity against SQL injection
+                and cross-site request forgery.
+            </p>
+
+            <br><h2>How it works</h2><br>
+
+            <p>
+                In order to vote on PVot, one must be registered as a citizen or member of a community. When and how
+                registration takes place is up to the discretion of the administration staff. Upon registration, citizens
+                or members submit their full name and a unique voter id which they are ought to keep secret.
+            </p>
+
+            <p>
+                Upon voting, a user selects one among the available choices of the question and enters his contact
+                information before hitting the vote button. The contact information consists of the first and last
+                names of the voter as well as her unique voter id. A user can vote on a particular question only once.
+            </p>
+
+            <br><h2>Language selection</h2><br>
+
+            <p>PVot currently works in three languages: English, Amharic and Afaan Oromo. To change the language, click
+                on the menu icon of the navigation bar and select the language you want. Alternatively, you can find the
+                links here.
+            </p>
+            <ul style="list-style-type: none;">
+                <li><a href="{% url 'polls:set_language' 'english' %}">English</a></li>
+                <li><a href="{% url 'polls:set_language' 'amharic' %}" style="font-family: A0 Tesfa Unicode;">አማርኛ</a></li>
+            </ul>
+
+            <br><h2>Credit</h2><br>
+            <p>
+                Although PVot is built from the ground up, as mentioned above, it is based on the Django framework,
+                which is a collaborative effort of the python community. Thus, my gratitude goes to the whole helpful,
+                dynamic and collaborative python community.
+            </p>
+            <p>
+                The GUI of PVot also is based on bootstrap.
+            </p>
+            <p>
+                The conception of PVot has to do with a science fair competition proposed by the science club of our school,
+                Leadstar Academy. I express my gratitude and appreciation for such events.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block body %}
+
+{% if language == "amharic" %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/bootstrap.min.css' %}">
+    <div class="container">
+        <br><br>
+        <h2 class="display-4" style="font-family: Nyala;">{{ question.amharic_question_text }}</h2>
+        <br>
+        <p class="lead" style="font-size: 2em; font-family: Nyala">እስከዚህ ጊዜ ድረስ ያለው ውጤት፡-</p>
+        <br>
+        <ul style="list-style-type: none;">
+            {% for choice in question.choice_set.all %}
+            <p><li class="lead text-center" style="font-family: Nyala;">{{choice.amharic_choice_text }} : {{ choice.votes }} ድምፅ</li></p>
+            {% endfor %}
+        </ul>
+        <p></p>
+        <a href="{% url 'polls:detail' question.id %}" class="btn btn-primary" style="font-family: Nyala;">እዚህ ጥያቄ ላይ ይምረጡ</a>
+        <hr>
+    </div>
+
+{% elif language == "afaan oromo" %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/bootstrap.min.css' %}">
+    <div class="container">
+        <br><br>
+        <p class="lead" style="font-size: 2em;">Bu’aawwan filannichaa:</p>
+        <br>
+        <h2 class="display-4">{{ question.oromic_question_text }}</h2>
+        <br>
+        <ul style="list-style-type: none;">
+            {% for choice in question.choice_set.all %}
+            <p><li class="lead text-center">{{choice.oromic_choice_text }} : Filannowwan {{ choice.votes }} </li></p>
+            {% endfor %}
+        </ul>
+        <p></p>
+        <a href="{% url 'polls:detail' question.id %}" class="btn btn-primary">Filannoo kana hirmaattaa?</a>
+        <hr>
+    </div>
+
+{% else %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/bootstrap.min.css' %}">
+    <div class="container">
+        <br><br>
+        <p class="lead" style="font-size: 2em;">current poll results for the question:</p>
+        <br>
+        <h2 class="display-4">{{ question.english_question_text }}</h2>
+        <br>
+        <ul style="list-style-type: none;">
+            {% for choice in question.choice_set.all %}
+            <p><li class="lead text-center">{{choice.english_choice_text }} : {{ choice.votes }} vote{{ choice.votes|pluralize }}</li></p>
+            {% endfor %}
+        </ul><br>
+        <p></p>
+        <a href="{% url 'polls:detail' question.id %}" class="btn btn-primary">Vote on this?</a>
+        <hr>
+    </div>
+
+{% endif %}
+
+{% endblock %}

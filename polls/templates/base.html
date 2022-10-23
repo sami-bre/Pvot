@@ -1,0 +1,220 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="a polling webapp">
+    <meta name="author" content="Samuel Birhanu">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>PVot</title>
+
+    <link rel="canonical" href="album.htm">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/bootstrap.min.css' %}">
+
+    <script src="{% static 'polls/jquery-3.3.1.min.js' %}"></script>
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+    </style>
+
+</head>
+<body>
+
+
+
+
+{% if language == "amharic" %}
+                <header>
+                    <div class="collapse bg-dark" id="navbarHeader">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-8 col-md-7 py-4">
+                                    <h4 class="text-white" style="font-family: A0 Tesfa Unicode;">አጭር መረጃ</h4>
+                                    <p class="text-muted" style="font-family: Nyala;">PVot በ ሳሙኤል ብርሃኑ የተሰራ መተግበርያ ሲሆን የአንድ ሀገር ዜጎች ወይም የአንድ
+                                        ማህበረሰብ አባላት እንደ ሪፍረንደም እና ሃገራዊ ምርጫ ባሉ ውሳኔ በሚያስፈልግባቸው ጉዳዮች ላይ በቀላሉ ድምጻቸውን
+                                        እንዲሰጡ ያስችላል፡፡ ይህንን ለማድረግ መራጮች በመጀመርያ መመዝገብ አለባቸው፡፡
+                                        የመራጭነት መለያቸውንም በሚስጥር መያዝ ይጠበቅባቸዋል፡፡</p>
+                                </div>
+                                <div class="col-sm-4 offset-md-1 py-4">
+                                    <h4 class="text-white" style="font-family: A0 Tesfa Unicode;">ቋንቋዎች</h4>
+                                    <ul class="list-unstyled">
+                                        <li><a href="{% url 'polls:set_language' 'english' %}" class="text-white">English</a></li>
+                                        <li><a href="{% url 'polls:set_language' 'amharic' %}" class="text-white" style="font-family: A0 Tesfa Unicode;">አማርኛ</a></li>
+                                        <li><a href="{% url 'polls:set_language' 'afaan oromo' %}" class="text-white">Afaan Oromo</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navbar navbar-dark bg-dark shadow-sm" id="navbar">
+                        <div class="container d-flex justify-content-between">
+                            <a href="{% url 'polls:home' %}" class="navbar-brand d-flex align-items-center">
+                                <strong style="font-family: A0 Tesfa Unicode;">የፊት ገፅ</strong>
+                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+                                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+
+
+
+
+{% elif language == "afaan oromo" %}
+
+
+
+
+                <header>
+                    <div class="collapse bg-dark" id="navbarHeader">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-8 col-md-7 py-4">
+                                    <h4 class="text-white">Odeeffannoo  Gabaabaa</h4>
+                                    <p class="text-muted">PVot kan kalaqame Saamiin yommuu ta’u, dhimmoota barbaachisoo sagaleen
+                                        lammiilee gaafatanii fi filannoo biyyoolessaa irratti bakka itti sagaleen kennamuu dha.
+                                        Kan gochuuf lammiileen pirofaayila filataa qabaachuu qabu, akkasumas lakkoofsa filataa fi
+                                         jecha darbaa isaanii dagachuu hin qaban.</p>
+                                </div>
+                                <div class="col-sm-4 offset-md-1 py-4">
+                                    <h4 class="text-white">Afaanota</h4>
+                                    <ul class="list-unstyled">
+                                        <li><a href="{% url 'polls:set_language' 'english' %}" class="text-white">English</a></li>
+                                        <li><a href="{% url 'polls:set_language' 'amharic' %}" class="text-white" style="font-family: A0 Tesfa Unicode;">አማርኛ</a></li>
+                                        <li><a href="{% url 'polls:set_language' 'afaan oromo' %}" class="text-white">Afaan Oromo</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navbar navbar-dark bg-dark shadow-sm" id="navbar">
+                        <div class="container d-flex justify-content-between">
+                            <a href="{% url 'polls:home' %}" class="navbar-brand d-flex align-items-center">
+                                <strong>Fuula duraa</strong>
+                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+                                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+
+
+{% else %}
+
+
+
+                <header>
+                    <div class="collapse bg-dark" id="navbarHeader">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-8 col-md-7 py-4">
+                                    <h4 class="text-white">About</h4>
+                                    <p class="text-muted">Built by Sami, PVot provides an easy way in which citizens vote on issues where their opinion is
+                                        needed or on the National elections. To do so, citizens need to have a voter profile, and they must not forget to
+                                        keep their voter IDs secret...</p>
+                                </div>
+                                <div class="col-sm-4 offset-md-1 py-4">
+                                    <h4 class="text-white">Languages</h4>
+                                    <ul class="list-unstyled">
+                                        <li><a href="{% url 'polls:set_language' 'english' %}" class="text-white">English</a></li>
+                                        <li><a href="{% url 'polls:set_language' 'amharic' %}" class="text-white" style="font-family: A0 Tesfa Unicode;">አማርኛ</a></li>
+                                        <li><a href="{% url 'polls:set_language' 'afaan oromo' %}" class="text-white">Afaan Oromo</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navbar navbar-dark bg-dark shadow-sm" id="navbar">
+                        <div class="container d-flex justify-content-between">
+                            <a href="{% url 'polls:home' %}" class="navbar-brand d-flex align-items-center">
+                                <strong>Home</strong>
+                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+                                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+{% endif %}
+
+
+
+                <main>
+                    {% block body %}
+                    {% endblock %}
+                </main>
+
+
+
+
+{% if language == "amharic" %}
+
+
+                <footer class="text-muted footer mt-auto py-3">
+                    <div class="container">
+                        <p class="float-right">
+                            <a href="#navbar" style="font-family: Nyala;">ወደ ላይ </a>
+                        </p>
+                        <p style="font-family: Nyala;">የ ኮፒራይት መብቱ የ ሳሙኤል ብርሃኑ ነው፡፡ </p>
+                    </div>
+                </footer>
+
+
+{% elif language == "afaan oromo" %}
+
+
+                <footer class="text-muted footer mt-auto py-3">
+                    <div class="container">
+                        <p class="float-right">
+                            <a href="#navbar">Ol deebi’uuf as cuqaasi</a>
+                        </p>
+                        <p>Mirga Abbummaa &copy; Saamu’eel Birhaanuu</p>
+                    </div>
+                </footer>
+
+
+{% else %}
+
+                <footer class="text-muted footer mt-auto py-3">
+                    <div class="container">
+                        <p class="float-right">
+                            <a href="#navbar">back to top</a>
+                        </p>
+                        <p>Copyright &copy; Samuel Birhanu, please stroll around exploring the app!</p>
+                    </div>
+                </footer>
+
+{% endif %}
+
+                <script src="{% static 'polls/jquery.js' %}"></script>
+                <script src="{% static 'polls/bootstrap.bundle.min.js' %}"></script>
+
+
+
+</body>
+</html>

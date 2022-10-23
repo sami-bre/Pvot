@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+{% if language == "english" %}
+    <div class="jumbotron" id="jumbo">
+        <div class="container">
+            <strong class="display-3 font-weight-bold">PVot<div class="h1 text-muted">vote from where you are!</div> </strong>
+            <p>PVot is a platform aimed at allowing citizens of a country or members of some community to give online votes on
+                particular issues. It is optimized for easy and simplified voting process. You can find subjects to vote on
+                posted here. </p>
+            <p><a class="btn btn-primary btn-lg" href="{% url 'polls:about' %}" role="button">Learn how to use »</a></p>
+        </div>
+    </div>
+
+
+    <div class="container">
+
+        <!-- Example row of columns -->
+        <div class="row">
+
+    {% for question in questions %}
+        <div class="col-md-4">
+                <h2>
+                    <h2>{{ question.english_question_text }}</h2>
+                </h2>
+            <p>
+            <div class="lead">Posted {{ question.pub_date }} </div>
+            <div class="lead">Deadline {{ question.dead_line }} </div>
+            </p>
+            <p><a class="btn btn-secondary" href="{% url 'polls:results' question.id %}" role="button">View details »</a></p>
+            </div>
+    {% endfor %}
+
+        </div>
+        <br>
+        {% include "polls/pagination.html" with page=questions %}<br>
+
+        <hr>
+
+    </div>
+
+
+
+
+
+
+
+
+{% elif language == "amharic" %}
+
+
+
+
+
+
+
+    <div class="jumbotron" id="jumbo">
+        <div class="container">
+            <strong class="display-3 font-weight-bold">PVot<div class="h1 text-muted" style="font-family: Nyala;">ካሉበት በቀላሉ ይምረጡ!</div> </strong>
+
+            <p style="font-family: Nyala;">PVot የአንድ ሀገር ዜጎች ወይም የአንድ ማህበረሰብ አባላት ለምርጫ በቀረቡ ጉዳዮች ላይ ካሉበት ሆነው በቀላሉ የሚመረጡበት የክላውድ
+                መተግበርያ ሲሆን ለአጠቃቀም ቅለት እንዲመች ሆኖ ተዘጋጅቷል፡፡ ለምርጫ የቀረቡ ጉዳዮችን እዚህ ገፅ ላይ ማግኘት ይችላሉ፡፡ </p>
+            <p><a class="btn btn-primary btn-lg" href="{% url 'polls:about' %}" role="button" style="font-family: Nyala;">አጠቃቀሙን ይማሩ »</a></p>
+        </div>
+    </div>
+
+
+    <div class="container">
+
+        <!-- Example row of columns -->
+        <div class="row">
+
+    {% for question in questions %}
+        <div class="col-md-4">
+                <h2>
+                    <h2 style="font-family: Nyala;">{{ question.amharic_question_text }}</h2>
+                </h2>
+            <p>
+            <div class="lead" style="font-family: Nyala;">መጀመርያ {{ question.pub_date }} </div>
+            <div class="lead" style="font-family: Nyala;">ፍፃሜ {{ question.dead_line }} </div>
+            </p>
+            <p><a class="btn btn-secondary" href="{% url 'polls:results' question.id %}" role="button" style="font-family: Nyala;">ዝርዝር »</a></p>
+            </div>
+    {% endfor %}
+
+        </div>
+        <br>
+        {% include "polls/pagination.html" with page=questions %}<br>
+
+        <hr>
+
+    </div>
+
+
+
+
+
+
+
+
+
+{% elif language == "afaan oromo" %}
+
+    <div class="jumbotron" id="jumbo">
+        <div class="container">
+            <strong class="display-3 font-weight-bold">PVot<div class="h1 text-muted">Bakkuma jirtan irra filadhaa!</div> </strong>
+            <p>Pvot’n marsariitii lammiilee biyya tokkoof yookaan miseensota garee hawaasaa tokkoof dhimmoota
+                 murtaa’oo irratti filannoo toora interneetii irraa hirmaachisuuf qophaa’ee dha. Filannoo
+                 adeemsisuuf haalli itti fayyadama isaa baay’ee salphaa dha. Dhimmoota filannoon irratti adeemsifamu
+                 kanaa gaditti argachuu ni dandeessa. </p>
+            <p><a class="btn btn-primary btn-lg" href="{% url 'polls:about' %}" role="button">Akkataa itti fayyadamaa »</a></p>
+        </div>
+    </div>
+
+
+    <div class="container">
+
+        <!-- Example row of columns -->
+        <div class="row">
+
+    {% for question in questions %}
+        <div class="col-md-4">
+                <h2>
+                    <h2>{{ question.oromic_question_text }}</h2>
+                </h2>
+            <p>
+            <div class="lead">Guyyaa filannoon eegale:  {{ question.pub_date }} </div>
+            <div class="lead">Guyyaa filannoon xumuramu:  {{ question.dead_line }} </div>
+            </p>
+            <p><a class="btn btn-secondary" href="{% url 'polls:results' question.id %}" role="button">Bal’ina isaa dubbisu »</a></p>
+            </div>
+    {% endfor %}
+
+        </div>
+        <br>
+        {% include "polls/pagination.html" with page=questions %}<br>
+
+        <hr>
+
+    </div>
+
+{% endif %}
+
+{% endblock %}
